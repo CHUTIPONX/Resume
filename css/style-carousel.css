@@ -1,0 +1,194 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Prompt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #3b3b3b, #b4b4b4, #b4b4b4, #3b3b3b);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease-in-out infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#snow {
+  pointer-events: none;
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 1000;
+}
+
+.snowflake {
+  position: absolute;
+  top: -2em;
+  color: #fff;
+  user-select: none;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+h1 {
+  font-size: 8rem;
+  font-weight: bold;
+  margin: 0;
+  color: #222;
+  letter-spacing: 0.1em;
+  /* ลบหรือคอมเมนต์บรรทัดที่เกี่ยวกับ opacity, transform, animation */
+  /* opacity: 0; */
+  /* transform: scale(0.2) translateY(-200px); */
+  /* animation: megaSequence 4.5s cubic-bezier(.68,-0.55,.27,1.55) 1 forwards; */
+}
+
+/* จัด Carousel ให้อยู่ตรงกลางแนวนอน */
+#carouselExampleIndicators {
+  max-width: 370px;
+  margin: 40px auto;
+}
+
+/* ปรับขนาดและมุมภาพใน Carousel */
+.carousel-inner img {
+  max-width: 100px;
+  max-height: 100px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.carousel-halfpage-wrapper {
+  width: 50vw;
+  min-width: 280px;
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+@media (max-width: 900px) {
+  .carousel-halfpage-wrapper {
+    width: 90vw;
+  }
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px; /* เพิ่มช่องว่างระหว่างปุ่มกับรูป */
+  margin: 40px auto;
+  max-width: 600px; /* เพิ่มขนาด carousel */
+}
+
+.carousel-track {
+  width: 480px;      /* เพิ่มความกว้าง */
+  height: 320px;     /* เพิ่มความสูง */
+  overflow: hidden;
+  position: relative;
+  border: 4px solid #4b4b4b; /* กรอบรูป */
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-item {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 14px;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-btn {
+  background: #000000;
+  color: #fff;
+  outline: none;
+  font-size: 2.5rem;
+  border-radius: 15px;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, border 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.carousel-btn:hover {
+  background: #696969;
+  transform: scale(1.08);
+}
+
+.back-btn {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  background: #000000;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+  z-index: 100;
+}
+.back-btn:hover {
+  background: #585858;
+}
+
+.big-white-box {
+  background: rgba(255,255,255,0.7); /* สีขาวโปร่งใส */
+  color: #222;
+  font-size: 3.5rem;
+  font-weight: bold;
+  border-radius: 32px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  padding: 7vw 3vw;
+  margin: 4vw auto;
+  max-width: 96vw;
+  width: 96vw;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px); /* สำหรับ Safari */
+}
+@media (min-width: 900px) {
+  .big-white-box {
+    font-size: 4rem;
+    max-width: 1200px;
+    width: 90vw;
+    padding: 80px 40px;
+    min-height: 70vh;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+    animation: megaSequence 4.5s cubic-bezier(.68,-0.55,.27,1.55) 1 forwards;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+}

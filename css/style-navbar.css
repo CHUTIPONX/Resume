@@ -1,0 +1,66 @@
+body {
+  background: linear-gradient(120deg, #3b3b3b, #b4b4b4, #b4b4b4, #3b3b3b);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease-in-out infinite;
+}
+
+.main-navbar {
+  width: 100%;
+  background: rgba(255,255,255,0.3); /* โปร่งใสขึ้นอีก */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  backdrop-filter: blur(12px); /* เพิ่ม blur */
+  -webkit-backdrop-filter: blur(12px); /* สำหรับ Safari */
+  transition: background 0.3s;
+}
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 0 0; /* เอา padding-left ออก */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.navbar-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  padding-left: 0;
+  margin-left: 0;
+}
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+.navbar-menu li a {
+  color: #222;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.navbar-menu li a:hover {
+  color: #34495e;
+}
+@media (max-width: 700px) {
+  .navbar-container {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 8px;
+    gap: 8px;
+  }
+  .navbar-menu {
+    gap: 16px;
+  }
+  .navbar-logo {
+    font-size: 1.3rem;
+  }
+}
